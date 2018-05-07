@@ -26,12 +26,14 @@ public class SpaceInvaders {
 		for (int y = 0; y < hauteur; y++) {
 			for (int x = 0; x < longueur; x++) {
 				 espaceDeJeu.append(recupererMarqueDeLaPosition(y, x));
+				 
 			}
 			espaceDeJeu.append(MARQUE_FIN_DE_LIGNE);
 		}
 		return espaceDeJeu.toString();
 	}
 
+	
 	private char recupererMarqueDeLaPosition(int y, int x) {
 		char marque;
 		 if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
@@ -53,14 +55,15 @@ public class SpaceInvaders {
 	private boolean aUnVaisseau() {
 		return vaisseau!=null;
 	}
-    
 	
-	
-    public void positionnerUnNouveauVaisseau(int x, int y) {
-        this.vaisseau = new Vaisseau(x, y);
-    }
-    
+	public void positionnerUnNouveauVaisseau(int x, int y) {
+		
+		if (x >= longueur)
+			throw new HorsEspaceJeuException("Vous êtes en dehors de l'espace jeu");
+		
+		vaisseau = new Vaisseau(x, y);
 
+	}
 
     
 }
