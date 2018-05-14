@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="spaceInvaider.spaceInvaider.Vaisseau" project="spaceInvaider" 
     file="/spaceInvaider/src/main/java/spaceInvaider/spaceInvaider/Vaisseau.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="623" y="326"/>    
+    <position height="-1" width="-1" x="560" y="361"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -23,7 +23,7 @@
   <class id="3" language="java" name="spaceInvaider.spaceInvaider.SpaceInvadersTest" project="spaceInvaider" 
     file="/spaceInvaider/src/test/java/spaceInvaider/spaceInvaider/SpaceInvadersTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="675" y="115"/>    
+    <position height="-1" width="-1" x="582" y="114"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -33,10 +33,10 @@
   <association id="4">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="5" name="vaisseau">        
-        <position height="0" width="0" x="225" y="18"/>      
+        <position height="0" width="0" x="162" y="53"/>      
       </attribute>      
       <multiplicity id="6" minimum="0" maximum="1">        
-        <position height="0" width="0" x="225" y="18"/>      
+        <position height="0" width="0" x="162" y="53"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    

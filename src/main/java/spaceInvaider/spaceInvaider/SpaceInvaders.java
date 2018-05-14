@@ -17,7 +17,7 @@ public class SpaceInvaders {
    }
 
     
-    
+    //toString inutile donc efface
     
 
     public String recupererEspaceJeuDansChaineASCII() {
