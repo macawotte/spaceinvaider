@@ -4,7 +4,7 @@
   <class id="1" language="java" name="spaceInvaider.spaceInvaider.SpaceInvaders" project="spaceInvaider" 
     file="/spaceInvaider/src/main/java/spaceInvaider/spaceInvaider/SpaceInvaders.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="286" width="317" x="-46" y="125"/>    
+    <position height="-1" width="-1" x="145" y="320"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="spaceInvaider.spaceInvaider.Vaisseau" project="spaceInvaider" 
     file="/spaceInvaider/src/main/java/spaceInvaider/spaceInvaider/Vaisseau.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="142" width="218" x="289" y="237"/>    
+    <position height="-1" width="-1" x="623" y="326"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -23,7 +23,7 @@
   <class id="3" language="java" name="spaceInvaider.spaceInvaider.SpaceInvadersTest" project="spaceInvaider" 
     file="/spaceInvaider/src/test/java/spaceInvaider/spaceInvaider/SpaceInvadersTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="513" y="76"/>    
+    <position height="-1" width="-1" x="675" y="115"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -32,8 +32,12 @@
   </class>  
   <association id="4">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="5" name="vaisseau"/>      
-      <multiplicity id="6" minimum="0" maximum="1"/>    
+      <attribute id="5" name="vaisseau">        
+        <position height="0" width="0" x="225" y="18"/>      
+      </attribute>      
+      <multiplicity id="6" minimum="0" maximum="1">        
+        <position height="0" width="0" x="225" y="18"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
