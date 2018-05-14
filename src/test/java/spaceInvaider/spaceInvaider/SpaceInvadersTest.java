@@ -53,7 +53,6 @@ public class SpaceInvadersTest {
 	}
 	
 	
-	
 
 	@Test
 	public void test_UnNouveauVaisseauPositionneHorsEspaceJeu_DoitLeverUneException() {
