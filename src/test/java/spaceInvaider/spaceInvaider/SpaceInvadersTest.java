@@ -13,14 +13,14 @@ public class SpaceInvadersTest {
 	private SpaceInvaders spaceinvaders;
 
 	@Before
-	public void initialisation() {
+			public void initialisation() {
 		spaceinvaders = new SpaceInvaders(15, 10);
 	}
 	    
 	    
 
 	@Test
-	public void test_AuDebut_JeuSpaceInvaderEstVide() {
+			public void test_AuDebut_JeuSpaceInvaderEstVide() {
 		   
 		    assertEquals("" + 
 		    "...............\n" + 
