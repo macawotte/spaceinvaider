@@ -8,10 +8,7 @@ public class Vaisseau {
 	    int hauteur;
 
 	    public Vaisseau(int longueur, int hauteur) {
-			this.longueur=longueur;
-			this.hauteur=hauteur;
-			this.x = 0;
-			this.y = 0;
+			this(longueur, hauteur, 0, 0);
 		}
 	
 	    public Vaisseau(int longueur, int hauteur, int x, int y) {
@@ -22,12 +19,24 @@ public class Vaisseau {
 	    }
 	
 	    public boolean occupeLaPosition(int x, int y) {
-		     if ((this.x<=x) && (x<=this.x+this.longueur-1)) 
-			      if ( (this.y-this.hauteur+1<=y) && (y<=this.y))
+	    	if (estAbscisseCouverte(x)) 
+			      if ( estOrdonneeCouverte(y))
 				  return true;
 			
 		     return false;
 	     }
+
+		public boolean estOrdonneeCouverte(int y) {
+			return (this.y-this.hauteur+1<=y) && (y<=this.y);
+		}
+
+		public boolean estAbscisseCouverte(int x) {
+			return (abscisseLaPlusAGauche()<=x) && (x<=abscisseLaPlusADroite());
+		}
+
+		public int abscisseLaPlusADroite() {
+			return this.x+this.longueur-1;
+		}
 
 	public void seDeplacerVersLaDroite() {
 	      this.x = this.x + 1 ;
@@ -37,7 +46,7 @@ public class Vaisseau {
 	      this.x = this.x - 1 ;
 	}
 	
-	public int abscisse() {
+	public int abscisseLaPlusAGauche() {
         return this.x;
 	}
 	
