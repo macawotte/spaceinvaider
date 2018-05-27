@@ -1,4 +1,4 @@
-package fr.unilim.iut.spaceinvaders.moteurjeu;
+package moteurJeu;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -41,7 +41,7 @@ public class Controleur implements KeyListener {
 		return (aRetourner);
 	}
 
-	@Override
+	
 	/**
 	 * met a jour les commandes en fonctions des touches appuyees
 	 */
@@ -58,7 +58,7 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
 			break;
-		// si on appuie sur 'z',commande joueur est haut
+		/* si on appuie sur 'z',commande joueur est haut
 		case 'z':
 			this.commandeEnCours.haut = true;
 			this.commandeARetourner.haut = true;
@@ -68,11 +68,13 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.bas = true;
 			this.commandeARetourner.bas = true;
 			break;
+			
+			*/
 		}
 
 	}
 
-	@Override
+	
 	/**
 	 * met a jour les commandes quand le joueur relache une touche
 	 */
@@ -84,17 +86,19 @@ public class Controleur implements KeyListener {
 		case 'd':
 			this.commandeEnCours.droite = false;
 			break;
-		case 'z':
+		/*case 'z':
 			this.commandeEnCours.haut = false;
 			break;
 		case 's':
 			this.commandeEnCours.bas = false;
 			break;
+			
+			*/
 		}
 
 	}
 
-	@Override
+	
 	/**
 	 * ne fait rien
 	 */

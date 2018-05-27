@@ -1,4 +1,4 @@
-package fr.unilim.iut.spaceinvaders.moteurjeu;
+package moteurJeu;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

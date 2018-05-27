@@ -24,4 +24,6 @@ public class Position {
     public void changerOrdonnee(int nouvelleOrdonnee) {
         this.y = nouvelleOrdonnee;
     }
+    
+    
 }
