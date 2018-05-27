@@ -97,8 +97,6 @@ public class SpaceInvaders implements Jeu {
 
     }
 
-
-
    public boolean etreFini() {
       return false; 
    }
