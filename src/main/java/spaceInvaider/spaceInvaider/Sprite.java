@@ -10,6 +10,13 @@ public class Sprite {
 		super();
 	}
 
+	public Sprite(Dimension dimension, Position origine, int vitesse) {
+		super();
+		this.dimension = dimension;
+		this.origine = origine;
+		this.vitesse = vitesse;
+	}
+
 	public boolean occupeLaPosition(int x, int y) {
 		return estAbscisseCouverte(x) && estOrdonneeCouverte(y);
 	}
