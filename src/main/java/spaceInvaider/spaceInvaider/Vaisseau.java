@@ -1,5 +1,7 @@
 package spaceInvaider.spaceInvaider;
 
+import utils.MissileException;
+
 public class Vaisseau extends Sprite {
 
 	public Vaisseau(Dimension dimension, Position positionOrigine, int vitesse) {
@@ -7,6 +9,9 @@ public class Vaisseau extends Sprite {
 	}
 
 	public Missile tirerUnMissile(Dimension dimensionMissile, int vitesseMissile) {
+		if(this.longueur()<dimensionMissile.longueur())
+			throw new MissileException("la longueur du missile est superieur a celle du vaisseau");
+		
 		Position positionOrigineMissile = calculerLaPositionDeTirDuMissile(dimensionMissile);
 		return new Missile(dimensionMissile, positionOrigineMissile, vitesseMissile);
 	}
