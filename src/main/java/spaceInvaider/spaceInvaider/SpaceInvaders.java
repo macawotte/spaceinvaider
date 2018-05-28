@@ -4,6 +4,8 @@ import moteurJeu.Commande;
 import moteurJeu.Constante;
 import moteurJeu.Jeu;
 
+import utils.MissileException;
+import utils.HorsEspaceJeuException;
 public class SpaceInvaders implements Jeu {
 
 
@@ -11,6 +13,7 @@ public class SpaceInvaders implements Jeu {
 	int longueur;
 	int hauteur;
 	Vaisseau vaisseau;
+	Missile missile;
 
 	public SpaceInvaders(int longueur, int hauteur) {
 		this.longueur = longueur;
@@ -30,14 +33,15 @@ public class SpaceInvaders implements Jeu {
 		return espaceDeJeu.toString();
 	}
 
-	private char recupererMarqueDeLaPosition(int y, int x) {
-		char marque;
-		if (this.aUnVaisseauQuiOccupeLaPosition(x, y))
-			marque = Constante.MARQUE_VAISSEAU;
-		else
-			marque = Constante.MARQUE_VIDE;
-		return marque;
-	}
+	 private char recupererMarqueDeLaPosition(int x, int y) {
+			char marque;
+			if (this.aUnVaisseauQuiOccupeLaPosition(y,x))
+				marque = Constante.MARQUE_VAISSEAU;
+			else if (this.aUnMissileQuiOccupeLaPosition(y,x))
+					marque = Constante.MARQUE_MISSILE;
+			else marque = Constante.MARQUE_VIDE;
+			return marque;
+		}
 
 	private boolean aUnVaisseauQuiOccupeLaPosition(int y, int x) {
 		return this.aUnVaisseau() && vaisseau.occupeLaPosition(x, y);
@@ -98,6 +102,9 @@ public class SpaceInvaders implements Jeu {
       if (commandeUser.droite) {
 	        deplacerVaisseauVersLaDroite();
       }
+      if (commandeUser.tir) {
+	        tirerUnMissile(new Dimension(Constante.MISSILE_HAUTEUR,Constante.MISSILE_LONGUEUR),Constante.MISSILE_VITESSE);
+    }
 
     }
 
@@ -113,6 +120,26 @@ public class SpaceInvaders implements Jeu {
 
 	public Vaisseau recupererVaisseau() {
 		return this.vaisseau;
+	}
+	
+	public Missile recupererMissile() {
+		return this.missile;
+	}
+
+	 public void tirerUnMissile(Dimension dimensionMissile, int vitesseMissile) {
+			
+		   if ((vaisseau.hauteur()+ dimensionMissile.hauteur()) > this.hauteur )
+			   throw new MissileException("Pas assez de hauteur libre entre le vaisseau et le haut de l'espace jeu pour tirer le missile");
+							
+		   this.missile = this.vaisseau.tirerUnMissile(dimensionMissile,vitesseMissile);
+     }
+	
+	
+	private boolean aUnMissileQuiOccupeLaPosition(int y, int x) {
+		return this.aUnMissile() && missile.occupeLaPosition(x, y);
+	}
+	public boolean aUnMissile() {
+		return missile != null;
 	}
 
 }

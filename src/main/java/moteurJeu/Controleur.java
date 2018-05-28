@@ -58,6 +58,10 @@ public class Controleur implements KeyListener {
 			this.commandeEnCours.droite = true;
 			this.commandeARetourner.droite = true;
 			break;
+		case ' ':
+			this.commandeEnCours.tir = true;
+			this.commandeARetourner.tir = true;
+			break;
 		/* si on appuie sur 'z',commande joueur est haut
 		case 'z':
 			this.commandeEnCours.haut = true;
@@ -85,6 +89,9 @@ public class Controleur implements KeyListener {
 			break;
 		case 'd':
 			this.commandeEnCours.droite = false;
+			break;
+		case ' ':
+			this.commandeEnCours.tir = false;
 			break;
 		/*case 'z':
 			this.commandeEnCours.haut = false;

@@ -1,6 +1,7 @@
-package spaceInvaider.spaceInvaider;
+package utils;
 
 @SuppressWarnings("serial")
+public
 class HorsEspaceJeuException extends RuntimeException {
 
     public HorsEspaceJeuException(String message) {

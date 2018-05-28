@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import spaceInvaider.spaceInvaider.Missile;
 import spaceInvaider.spaceInvaider.SpaceInvaders;
 import spaceInvaider.spaceInvaider.Vaisseau;
 
@@ -19,6 +20,7 @@ public class DessinSpaceInvaders implements DessinJeu {
 		   if (this.jeu.aUnVaisseau()) {
 			   Vaisseau vaisseau = this.jeu.recupererVaisseau();
 			   this.dessinerUnVaisseau(vaisseau, im);
+			  
 		   }
 	   }
 
@@ -27,6 +29,22 @@ public class DessinSpaceInvaders implements DessinJeu {
 
 		   crayon.setColor(Color.red);
 		   	crayon.fillRect(vaisseau.abscisseLaPlusAGauche(), vaisseau.ordonneeLaPlusBasse(), vaisseau.longueur(), vaisseau.hauteur());
+
+	   }
+	   
+	   
+	   public void dessinerMissile (BufferedImage im) {
+		   if (this.jeu.aUnVaisseau()) {
+			   Missile missile = this.jeu.recupererMissile();
+			   this.dessinerUnMissile(missile, im);
+		   }
+	   }
+	   
+	   private void dessinerUnMissile(Missile missile, BufferedImage im) {
+		   Graphics2D crayon = (Graphics2D) im.getGraphics();
+
+		   crayon.setColor(Color.blue);
+		   crayon.fillRect(10,10,missile.longueur(),missile.hauteur());
 
 	   }
 
