@@ -3,6 +3,9 @@ package spaceInvaider.spaceInvaider;
 
 import org.junit.Test;
 
+import model.Dimension;
+import model.Position;
+import model.Vaisseau;
 import utils.MissileException;
 
 public class VaisseauTest {

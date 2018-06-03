@@ -1,6 +1,7 @@
 package moteurJeu;
 
-import spaceInvaider.spaceInvaider.SpaceInvaders;
+import model.Constante;
+import model.SpaceInvaders;
 
 /**
  * lancement du moteur avec le jeu

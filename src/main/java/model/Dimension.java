@@ -1,4 +1,4 @@
-package spaceInvaider.spaceInvaider;
+package model;
 
 public class Dimension {
 	int longueur;

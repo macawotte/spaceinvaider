@@ -1,4 +1,4 @@
-package spaceInvaider.spaceInvaider;
+package utils;
 @SuppressWarnings("serial")
 public class DebordementEspaceJeuException extends RuntimeException {
 
