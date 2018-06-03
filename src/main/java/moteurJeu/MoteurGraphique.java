@@ -55,11 +55,11 @@ public class MoteurGraphique {
 			// affiche le jeu
 			this.gui.dessiner();
 			// met en attente
-			Thread.sleep(100);
+			Thread.sleep(10);
 		}
 		
 		if(this.jeu.etreFini()){
-			
+			System.out.println("gg !");
 		}
 	}
 
