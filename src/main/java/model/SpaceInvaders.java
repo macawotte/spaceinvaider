@@ -126,7 +126,7 @@ public class SpaceInvaders implements Jeu {
 	}
 
 	public boolean etreFini() {
-		return false;
+		return Collision.detecterCollision(this.missile, this.envahisseur);
 	}
 
 	public void initialiserJeu() {
@@ -246,4 +246,7 @@ public class SpaceInvaders implements Jeu {
 		return this.envahisseur;
 	}
 
+	public boolean collisiondeuxSprite() {
+		return Collision.detecterCollision(this.missile, this.envahisseur);
+	}
 }
