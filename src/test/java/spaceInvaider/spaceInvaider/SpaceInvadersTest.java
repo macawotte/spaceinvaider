@@ -495,6 +495,8 @@ public class SpaceInvadersTest {
 		  		assertEquals(false, spaceinvaders.etreFini());
 		  }
 		  
+		
+		  
 		  
 		  
 }
