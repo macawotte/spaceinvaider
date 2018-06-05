@@ -1,5 +1,6 @@
 package moteurJeu;
 
+import model.Constante;
 
 /**
  * classe MoteurGraphique represente un moteur de jeu generique.
@@ -55,7 +56,7 @@ public class MoteurGraphique {
 			// affiche le jeu
 			this.gui.dessiner();
 			// met en attente
-			Thread.sleep(10);
+			Thread.sleep(Constante.TIME_SLEEP);
 		}
 		
 		if(this.jeu.etreFini()){
