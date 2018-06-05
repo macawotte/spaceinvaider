@@ -60,7 +60,7 @@ public class MoteurGraphique {
 		}
 		
 		if(this.jeu.etreFini()){
-			System.out.println("gg !");
+			System.out.println("Fin de la partie !");
 		}
 	}
 

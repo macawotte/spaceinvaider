@@ -477,7 +477,7 @@ public class SpaceInvadersTest {
 		}
 		  
 		  @Test
-		  public void test_Fin(){
+		  public void test_Fin_EnvahisseurDetruit(){
 		  		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2), new Position(7,9), 1);
 		  		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2), new Position(8,5), 1);
 		  		spaceinvaders.tirerUnMissile(new Dimension(1, 2), 1);
@@ -494,6 +494,71 @@ public class SpaceInvadersTest {
 		  		
 		  		assertEquals(false, spaceinvaders.etreFini());
 		  }
+		  
+		  
+		  @Test
+		  public void test_Fin_EnvahisseurDetruitVaisseauEnLeTouchant(){
+		  		spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2), new Position(1,9), 1);
+		  		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2), new Position(3,8), 1);
+		  		assertEquals("" + 
+		  				  "...............\n" + 
+		  				  "...............\n" +
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...EEE.........\n" + 
+		  				  ".VVVEE.........\n" + 
+		  				  ".VVV...........\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		  		assertEquals(true, spaceinvaders.etreFini());
+		  }
+		  
+		  
+		  @Test
+		  public void test_Envahisseur_Descend(){
+		  		
+		  		spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2), new Position(1,1), 1);
+		  		spaceinvaders.deplacerEnvahisseurVersLaGauche();
+		  		spaceinvaders.EnvahisseurDescend(1);
+		  		
+		  		
+		  		assertEquals("" + 
+		  				  "...............\n" + 
+		  				  "EEE............\n" +
+		  				  "EEE............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());	
+		  }
+		  
+		  @Test
+		  public void test_Envahisseur_DescendSurVaisseau(){
+			spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3,2), new Position(0,9), 1);
+		  	spaceinvaders.positionnerUnNouvelEnvahisseur(new Dimension(3,2), new Position(1,7), 1);
+		  	spaceinvaders.deplacerEnvahisseurVersLaGauche();
+		  	spaceinvaders.EnvahisseurDescend(1);
+		  		
+		  		
+		  		assertEquals("" + 
+		  				  "...............\n" + 
+		  				  "...............\n" +
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "...............\n" + 
+		  				  "EEE............\n" + 
+		  				  "VVV............\n" + 
+		  				  "VVV............\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());	
+		  		
+		  		assertEquals(true, spaceinvaders.etreFini());
+		  }
+		  
 		  
 		
 		  
