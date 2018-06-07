@@ -13,8 +13,9 @@ public interface Jeu {
 	 * 
 	 * @param commandeUser
 	 *            commande utilisateur
+	 * @throws InterruptedException 
 	 */
-	public void evoluer(Commande commandeUser);
+	public void evoluer(Commande commandeUser) throws InterruptedException;
 	
 	/**
 	 * @return true si et seulement si le jeu est fini

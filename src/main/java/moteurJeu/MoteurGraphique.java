@@ -1,5 +1,7 @@
 package moteurJeu;
 
+import javax.swing.JOptionPane;
+
 import model.Constante;
 
 /**
@@ -43,11 +45,11 @@ public class MoteurGraphique {
 	 */
 	public void lancerJeu(int width, int height) throws InterruptedException {
 
-		// creation de l'interface graphique
+		//Creation de l'interface graphique
 		this.gui = new InterfaceGraphique(this.dessin,width,height);
 		Controleur controle = this.gui.getControleur();
 
-		// boucle de jeu
+		//Boucle du jeu : tant qu'il n'a pas terminé
 		while (!this.jeu.etreFini()) {
 			// demande controle utilisateur
 			Commande c = controle.getCommande();
@@ -60,7 +62,8 @@ public class MoteurGraphique {
 		}
 		
 		if(this.jeu.etreFini()){
-			System.out.println("Fin de la partie !");
+			System.out.println("ETAT : Victoire");
+			JOptionPane.showMessageDialog(null, "Vous avez gagné !", "SpaceInvaders", JOptionPane.QUESTION_MESSAGE);
 		}
 	}
 
