@@ -140,7 +140,7 @@ public class SpaceInvaders implements Jeu  {
 		if (commandeUser.tir) {
 			//On fait un système booleen + le temps en millisecondes comme ça on empèche le spam de missile
 			if(pretATirer == false) {
-				if(System.currentTimeMillis()>tempsDifference+150) {
+				if(System.currentTimeMillis()>tempsDifference+220) {
 					pretATirer = true;
 				}
 			}
