@@ -672,8 +672,34 @@ public class SpaceInvadersTest {
 		     			".....VVVVVVV...\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
 		     }
 		
-		
-		  
+		  @Test
+		  public void test_LeTirDunUniqueMissile() {
+		     	spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(6, 2), new Position(5, 9), 1);
+		     	spaceinvaders.positionnerNouvelEnvahisseur(new Dimension(2,2), new Position(7,1), 1);
+		     	spaceinvaders.positionnerNouvelEnvahisseur(new Dimension(2,2), new Position(0,1), 1);
+		     	spaceinvaders.positionnerNouvelEnvahisseur(new Dimension(2,2), new Position(13,1), 1);
+
+		     	spaceinvaders.tirerMissile(new Dimension(2, 2), 1);
+		     	spaceinvaders.deplacerMissile();
+		     	spaceinvaders.deplacerMissile();
+		     	spaceinvaders.deplacerMissile();
+		     	spaceinvaders.deplacerMissile();
+		     	spaceinvaders.deplacerMissile();
+		     	spaceinvaders.eliminerEnvahisseur();
+		     	
+		     	assertEquals("" + 
+		     			"EE...........EE\n" + 
+		     			"EE...........EE\n" +
+		     			"...............\n" + 
+		     			"...............\n" + 
+		     			"...............\n" + 
+		     			"...............\n" + 
+		     			"...............\n" + 
+		     			"...............\n" + 
+		     			".....VVVVVV....\n" + 
+		     			".....VVVVVV....\n" , spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		     	
+		  }
 		  
 		  
 }
