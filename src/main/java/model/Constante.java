@@ -11,7 +11,7 @@ public class Constante {
 	
 	public static final int ENVAHISSEUR_LONGUEUR = 50;
 	public static final int ENVAHISSEUR_HAUTEUR = 20;
-	public static final int ENVAHISSEUR_VITESSE = 3;
+	public static final int ENVAHISSEUR_VITESSE = 1;
 	public static final int ENVAHISSEUR_DESCEND = 25;
 	
 	public static final int MISSILE_LONGUEUR = 20;

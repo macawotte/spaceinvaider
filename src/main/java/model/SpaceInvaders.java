@@ -131,7 +131,7 @@ public class SpaceInvaders implements Jeu  {
 	public void evoluer(Commande commandeUser) throws InterruptedException{
 		System.out.println(pretATirer);
 		if(pretATirer == false) {
-			if(System.currentTimeMillis()>tempsDifference+220) {
+			if(System.currentTimeMillis()>tempsDifference+300) {
 				pretATirer = true;
 			}
 			else {
@@ -151,7 +151,7 @@ public class SpaceInvaders implements Jeu  {
 			/*System.out.println("Temps actuel "+System.currentTimeMillis());
 			System.out.println("Temps difference "+tempsDifference);
 			System.out.println("Temps difference 220 "+tempsDifference +220);*/
-			if(pretATirer==true) {
+			if(pretATirer) {
 				tempsDifference = System.currentTimeMillis();
 				tirerMissile(new Dimension(Constante.MISSILE_LONGUEUR, Constante.MISSILE_HAUTEUR),
 						Constante.MISSILE_VITESSE);
@@ -362,8 +362,10 @@ public class SpaceInvaders implements Jeu  {
 	public void deplacerEnvahisseurs() {
 		if (this.envahisseurSeDeplaceVersLaDroite()) {
 			this.deplacerEnvahisseurVersLaDroite();
+			   //EnvahisseurDescend(1);
 		} else {
 				this.deplacerEnvahisseurVersLaGauche();
+				//EnvahisseurDescend(1);
 		}
 	}
 	public boolean envahisseurSeDeplaceVerLaDroite() {
