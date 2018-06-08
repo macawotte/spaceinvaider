@@ -139,16 +139,19 @@ public class SpaceInvaders implements Jeu  {
 		}
 		if (commandeUser.tir) {
 			//On fait un système booleen + le temps en millisecondes comme ça on empèche le spam de missile
+			//Thread.sleep(20); A mettre dans evoluer si ça ne fonctionne pas
+			System.out.println("Temps actuel"+System.currentTimeMillis());
+			System.out.println("Temps difference"+tempsDifference);
 			if(pretATirer == false) {
 				if(System.currentTimeMillis()>tempsDifference+220) {
 					pretATirer = true;
 				}
 			}
 			if(pretATirer==true) {
-			tirerMissile(new Dimension(Constante.MISSILE_LONGUEUR, Constante.MISSILE_HAUTEUR),
-					Constante.MISSILE_VITESSE);
-			tempsDifference = System.currentTimeMillis();
-			pretATirer = false;
+				tirerMissile(new Dimension(Constante.MISSILE_LONGUEUR, Constante.MISSILE_HAUTEUR),
+						Constante.MISSILE_VITESSE);
+				tempsDifference = System.currentTimeMillis();
+				pretATirer = false;
 			}
 
 		}
@@ -174,13 +177,12 @@ public class SpaceInvaders implements Jeu  {
 	}
 
 	public boolean etreFini() {
-		for(int i =0;i<envahisseur.size();i++) {
-			
+		for(int i=0;i<envahisseur.size();i++) {
+			if(recupererEnvahisseur().get(i) != null) {
+				return false;
+			}
 		}
-		if(!this.aUnEnvahisseur()) {
-			return true;
-		}
-		return false;
+		return true;
 	}
 
 	/*public void initialiserJeu() {
