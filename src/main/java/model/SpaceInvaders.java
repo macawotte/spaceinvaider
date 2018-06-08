@@ -15,7 +15,7 @@ public class SpaceInvaders implements Jeu  {
 	List<Envahisseur> envahisseur;
 	boolean deplacementEnvahisseurVersLaDroite;
 	boolean modificationDeplacementEnvahisseur;
-	boolean pretATirer = true;
+	public boolean pretATirer = true;
 	long tempsDifference = 0;
 	
 	public SpaceInvaders(int longueur, int hauteur) {
@@ -129,6 +129,15 @@ public class SpaceInvaders implements Jeu  {
 	}
 
 	public void evoluer(Commande commandeUser) throws InterruptedException{
+		System.out.println(pretATirer);
+		if(pretATirer == false) {
+			if(System.currentTimeMillis()>tempsDifference+220) {
+				pretATirer = true;
+			}
+			else {
+				pretATirer = false;
+			}
+		}
 		if (commandeUser.gauche) {
 			deplacerVaisseauVersLaGauche();
 		}
@@ -139,17 +148,13 @@ public class SpaceInvaders implements Jeu  {
 		if (commandeUser.tir) {
 			//On fait un système booleen + le temps en millisecondes comme ça on empèche le spam de missile
 			//Thread.sleep(20); A mettre dans evoluer si ça ne fonctionne pas
-			System.out.println("Temps actuel "+System.currentTimeMillis());
+			/*System.out.println("Temps actuel "+System.currentTimeMillis());
 			System.out.println("Temps difference "+tempsDifference);
-			if(pretATirer == false) {
-				if(System.currentTimeMillis()>tempsDifference+220) {
-					pretATirer = true;
-				}
-			}
+			System.out.println("Temps difference 220 "+tempsDifference +220);*/
 			if(pretATirer==true) {
+				tempsDifference = System.currentTimeMillis();
 				tirerMissile(new Dimension(Constante.MISSILE_LONGUEUR, Constante.MISSILE_HAUTEUR),
 						Constante.MISSILE_VITESSE);
-				tempsDifference = System.currentTimeMillis();
 				pretATirer = false;
 			}
 
@@ -160,10 +165,8 @@ public class SpaceInvaders implements Jeu  {
 
 		if (this.aUnEnvahisseur()) {
 			this.deplacerEnvahisseur();
-			
 			this.eliminerEnvahisseur();
 		}
-
 	}
 	public void eliminerEnvahisseur() {
 		for (int i=0; i < missile.size(); i++) {
@@ -175,9 +178,6 @@ public class SpaceInvaders implements Jeu  {
 			}
 		}
 	}
-	
-	
-	
 
 	public boolean etreFini() {
 		for(int i=0;i<envahisseur.size();i++) {
@@ -223,7 +223,6 @@ public class SpaceInvaders implements Jeu  {
 			throw new MissileException("Pas assez de hauteur libre entre le vaisseau et le haut de l'espace jeu pour tirer le missile");
 
 		Missile nouveauMissile = this.vaisseau.tirerUnMissile(dimensionMissile,vitesseMissile);
-		
 		
 		boolean isShootable = true; //S'il peut tirer
 		
@@ -295,8 +294,6 @@ public class SpaceInvaders implements Jeu  {
 
 		return this.deplacementEnvahisseurVersLaDroite;
 	}
-	
-	
 	/*public boolean envahisseurSeDeplaceVersLaDroite() {
 		if (this.envahisseurEstAGauche()) {
 			this.deplacementEnvahisseurVersLaDroite = true;
@@ -312,12 +309,11 @@ public class SpaceInvaders implements Jeu  {
 	}*/
 
 	public void EnvahisseurDescend(int i) {
-			for (int i1=0; i1 < envahisseur.size(); i1++) {
-				envahisseur.get(i1).origine.y=envahisseur.get(i1).origine.y+i;
-			}
+		for (int i1=0; i1 < envahisseur.size(); i1++) {
+			envahisseur.get(i1).origine.y=envahisseur.get(i1).origine.y+i;
+		}
 	}
-/*
-	public boolean envahisseurEstADroite() {
+	/*public boolean envahisseurEstADroite() {
 		return this.longueur - 1 == this.envahisseur.abscisseLaPlusADroite();
 	}
 
@@ -381,8 +377,6 @@ public class SpaceInvaders implements Jeu  {
 
 		return this.modificationDeplacementEnvahisseur;
 	}
-	
-	
 
 	public boolean envahisseursEstADroite(int index) {
 		return this.longueur - 1 == this.envahisseur.get(index).abscisseLaPlusADroite();

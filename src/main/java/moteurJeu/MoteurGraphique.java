@@ -63,6 +63,7 @@ public class MoteurGraphique {
 		if(this.jeu.etreFini()){
 			System.out.println("ETAT : Victoire");
 			JOptionPane.showMessageDialog(null, "Vous avez gagne !", "SpaceInvaders", JOptionPane.QUESTION_MESSAGE);
+			System.exit(0);
 		}
 	}
 
