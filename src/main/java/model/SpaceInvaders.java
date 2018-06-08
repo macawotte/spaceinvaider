@@ -14,7 +14,7 @@ public class SpaceInvaders implements Jeu  {
 	int hauteur;
 	Vaisseau vaisseau;
 	List<Missile> missile;
-	//List missile = new LinkedList();
+	//List missile = new LinkedList(); PASSER SUR DES COLLECTIONS 
 	List<Envahisseur> envahisseur;
 	boolean deplacementEnvahisseurVersLaDroite;
 	boolean modificationDeplacementEnvahisseur;
@@ -134,7 +134,7 @@ public class SpaceInvaders implements Jeu  {
 	public void evoluer(Commande commandeUser) throws InterruptedException{
 		System.out.println(pretATirer);
 		if(pretATirer == false) {
-			if(System.currentTimeMillis()>tempsDifference+300) {
+			if(System.currentTimeMillis()>tempsDifference+320) {
 				pretATirer = true;
 			}
 			else {
@@ -182,9 +182,8 @@ public class SpaceInvaders implements Jeu  {
 					}
 				}
 			}
-		}
-		catch(Exception e){
-			//On soulève l'exception
+		} catch(Exception e){
+			System.out.println("Passe par l'exception");
 		}
 	}
 
@@ -397,7 +396,6 @@ public class SpaceInvaders implements Jeu  {
 	
 	public void ajouterGroupeEnvahisseurs(){
 		int nbEnvahisseur = calculerNombreEnvahisseur();
-	
 		for(int i = 0 ; i < nbEnvahisseur ; i++) {
 			positionnerNouvelEnvahisseur(new Dimension(Constante.ENVAHISSEUR_LONGUEUR, Constante.ENVAHISSEUR_HAUTEUR), new Position(calculerAbscisseEnvahisseur(i), Constante.ENVAHISSEUR_HAUTEUR*2),Constante.ENVAHISSEUR_VITESSE);
 		}
