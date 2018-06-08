@@ -140,8 +140,8 @@ public class SpaceInvaders implements Jeu  {
 		if (commandeUser.tir) {
 			//On fait un système booleen + le temps en millisecondes comme ça on empèche le spam de missile
 			//Thread.sleep(20); A mettre dans evoluer si ça ne fonctionne pas
-			System.out.println("Temps actuel"+System.currentTimeMillis());
-			System.out.println("Temps difference"+tempsDifference);
+			System.out.println("Temps actuel "+System.currentTimeMillis());
+			System.out.println("Temps difference "+tempsDifference);
 			if(pretATirer == false) {
 				if(System.currentTimeMillis()>tempsDifference+220) {
 					pretATirer = true;
