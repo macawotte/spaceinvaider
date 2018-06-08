@@ -61,7 +61,7 @@ public class SpaceInvaders implements Jeu  {
 	private boolean EnvahisseurQuiOccupeLaPosition(int x, int y) {
 		if (this.aUnEnvahisseur()) {
 			for (int i=0; i < envahisseur.size(); i++) {
-				if (envahisseur.get(i).occupeLaPosition(x, y))
+				if (envahisseur.get(i).occupeLaPosition(y, x))
 					return true;
 				}
 			}
@@ -174,11 +174,9 @@ public class SpaceInvaders implements Jeu  {
 	}
 
 	public boolean etreFini() {
-		/*for (int i=0; i < missile.size(); i++) {
-			if (this.aUnMissile() && this.aUnEnvahisseur() && Collision.detecterCollision(missile.get(i), envahisseur)) {
-				return true;
-			}
-		}*/
+		for(int i =0;i<envahisseur.size();i++) {
+			
+		}
 		if(!this.aUnEnvahisseur()) {
 			return true;
 		}
@@ -194,6 +192,7 @@ public class SpaceInvaders implements Jeu  {
 		Position positionEnvahisseur = new Position(this.longueur / 2, dimensionEnvahisseur.hauteur() - 1);
 		positionnerUnNouvelEnvahisseur(dimensionEnvahisseur, positionEnvahisseur, Constante.ENVAHISSEUR_VITESSE);
 	}*/
+	
 	public void initialiserJeu() {
 		Position positionVaisseau = new Position(this.longueur / 2, this.hauteur - 1);
 		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
@@ -212,6 +211,7 @@ public class SpaceInvaders implements Jeu  {
 	public Missile recupererUnUniqueMissile(int index) {
 		return this.missile.get(index);
 	}
+	
 	public void tirerMissile(Dimension dimensionMissile, int vitesseMissile) {
 
 		if ((vaisseau.hauteur() + dimensionMissile.hauteur()) > this.hauteur)
@@ -236,7 +236,7 @@ public class SpaceInvaders implements Jeu  {
 	private boolean MissileQuiOccupeLaPosition(int x, int y) {
 		if (this.aUnMissile()) {
 			for (int i=0; i < missile.size(); i++) {
-				if (missile.get(i).occupeLaPosition(x, y)) {
+				if (missile.get(i).occupeLaPosition(y, x)) {
 					return true;
 				}
 			}

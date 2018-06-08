@@ -49,7 +49,8 @@ public class MoteurGraphique {
 		this.gui = new InterfaceGraphique(this.dessin,width,height);
 		Controleur controle = this.gui.getControleur();
 
-		//Boucle du jeu : tant qu'il n'a pas terminé
+		//Boucle du jeu : tant qu'il n'a pas termine
+		System.out.println("Test Passage 1");
 		while (!this.jeu.etreFini()) {
 			// demande controle utilisateur
 			Commande c = controle.getCommande();
@@ -59,11 +60,12 @@ public class MoteurGraphique {
 			this.gui.dessiner();
 			// met en attente
 			Thread.sleep(Constante.TIME_SLEEP);
+			System.out.println("Test Passage 2");
 		}
-		
+		System.out.println("Test Passage 3");
 		if(this.jeu.etreFini()){
 			System.out.println("ETAT : Victoire");
-			JOptionPane.showMessageDialog(null, "Vous avez gagné !", "SpaceInvaders", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Vous avez gagne !", "SpaceInvaders", JOptionPane.QUESTION_MESSAGE);
 		}
 	}
 
